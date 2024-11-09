@@ -1,60 +1,23 @@
 ---
 import "keen-slider/keen-slider.min.css";
 import Card from "./Card.astro";
-
-const PLACEHOLDER_VERSIONS = [
-  { version: "7.2_01", url: "#" },
-  { version: "7.1_02", url: "#" },
-  { version: "7.0_02", url: "#" },
-];
+import data from "../data/mods.json";
 ---
 
 <div id="mod-slider" class="keen-slider">
-  <div class="keen-slider__slide">
-    <Card
-      title="Sort Chest"
-      icon="https://picsum.photos/id/111/360"
-      links={PLACEHOLDER_VERSIONS}
-      infoUrl="#"
-      style="--index:0"
-    />
-  </div>
-  <div class="keen-slider__slide">
-    <Card
-      title="Leaves Always Falling"
-      icon="https://picsum.photos/id/111/360"
-      links={PLACEHOLDER_VERSIONS}
-      infoUrl="#"
-      style="--index:1"
-    />
-  </div>
-  <div class="keen-slider__slide">
-    <Card
-      title="Craftable Chainmail Armor"
-      icon="https://picsum.photos/id/111/360"
-      links={PLACEHOLDER_VERSIONS}
-      infoUrl="#"
-      style="--index:2"
-    />
-  </div>
-  <div class="keen-slider__slide">
-    <Card
-      title="Proximity Chat"
-      icon="https://picsum.photos/id/111/360"
-      links={PLACEHOLDER_VERSIONS}
-      infoUrl="#"
-      style="--index:3"
-    />
-  </div>
-  <div class="keen-slider__slide">
-    <Card
-      title="Bit by Bit"
-      icon="https://picsum.photos/id/111/360"
-      links={PLACEHOLDER_VERSIONS}
-      infoUrl="#"
-      style="--index:4"
-    />
-  </div>
+  {
+    data.map(({ title, icon, links, infoUrl }, index) => (
+      <div class="keen-slider__slide">
+        <Card
+          title={title}
+          icon={icon}
+          links={links}
+          infoUrl={infoUrl}
+          style={`--index:${index}`}
+        />
+      </div>
+    ))
+  }
 </div>
 
 <script>

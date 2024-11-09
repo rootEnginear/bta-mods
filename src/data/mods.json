@@ -1,0 +1,77 @@
+[
+  {
+    "title": "Sort Chest",
+    "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/sort-chest/src/main/resources/icon.png",
+    "links": [
+      {
+        "version": "7.2",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/sch%2Fv1.3.0/sortchest-1.3.0.jar"
+      },
+      {
+        "version": "7.1",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/sch%2Fv1.2.1/sortchest-1.2.1.jar"
+      },
+      {
+        "version": "7.0_02",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/sch%2Fv1.1.0/sortchest-1.1.0.jar"
+      }
+    ],
+    "infoUrl": "https://github.com/rootEnginear/bta-rootenginear-mods/tree/sort-chest"
+  },
+  {
+    "title": "Leaves Always Falling",
+    "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/leaves-always-falling/src/main/resources/icon.png",
+    "links": [
+      {
+        "version": "7.1",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/laf%2Fv1.1.0/leavesalwaysfalling-1.1.0.jar"
+      },
+      {
+        "version": "7.0_02",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/laf%2Fv1.0.0/leavesalwaysfalling-1.0.0.jar"
+      }
+    ],
+    "infoUrl": "https://github.com/rootEnginear/bta-rootenginear-mods/tree/leaves-always-falling"
+  },
+  {
+    "title": "Craftable Chainmail Armor",
+    "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/craftable-chainmail-armor/src/main/resources/icon.png",
+    "links": [
+      {
+        "version": "7.1",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/cca%2Fv1.1.0/craftablechainmailarmor-1.1.0.jar"
+      },
+      {
+        "version": "7.0_02",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/cca%2Fv1.0.2/craftablechainmailarmor-1.0.2.jar"
+      }
+    ],
+    "infoUrl": "https://github.com/rootEnginear/bta-rootenginear-mods/tree/craftable-chainmail-armor"
+  },
+  {
+    "title": "Proximity Chat",
+    "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/proximity-chat/src/main/resources/icon.png",
+    "links": [
+      {
+        "version": "7.1",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/pch%2Fv1.1.0/proximitychat-1.1.0.jar"
+      },
+      {
+        "version": "7.0_02",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/pch%2Fv1.0.0/proximitychat-1.0.0.jar"
+      }
+    ],
+    "infoUrl": "https://github.com/rootEnginear/bta-rootenginear-mods/tree/proximity-chat"
+  },
+  {
+    "title": "Bit by Bit",
+    "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/bit-by-bit/src/main/resources/icon.png",
+    "links": [
+      {
+        "version": "7.0_02",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/bbb-v1.2.0/bitbybit-1.2.0.jar"
+      }
+    ],
+    "infoUrl": "https://github.com/rootEnginear/bta-rootenginear-mods/tree/bit-by-bit"
+  }
+]
