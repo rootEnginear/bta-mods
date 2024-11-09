@@ -1,8 +1,71 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-}
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    colors: {
+      transparent: "transparent",
+      inherit: "inherit",
+      current: "currentColor",
+      white: "#F4F4F4",
+      black: "#161616",
+      red: {
+        DEFAULT: "#DA1E28",
+        hover: "#BA1B23",
+        dimmed: "#750E13",
+      },
+    },
+    fontFamily: {
+      sans: [
+        "Funnel Sans",
+        "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "Noto Sans",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+        "sans-serif",
+      ],
+      serif: [
+        "Funnel Display",
+        "ui-serif",
+        "Georgia",
+        "Cambria",
+        "Times New Roman",
+        "Times",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Apple Color Emoji",
+        "Noto Color Emoji",
+        "sans-serif",
+      ],
+    },
+    fontSize: {
+      20: ["20px", 1],
+      25: ["25px", 1],
+      30: ["30px", 1.1],
+      50: ["50px", 1],
+    },
+    lineHeight: {
+      DEFAULT: "1",
+      1: "1",
+      1.1: "1.1",
+    },
+    spacing: {
+      0: "0",
+      10: "10px",
+      20: "20px",
+      25: "25px",
+      30: "30px",
+      45: "45px",
+      60: "60px",
+    },
+  },
+  plugins: [],
+};
