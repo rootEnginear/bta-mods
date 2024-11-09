@@ -1,0 +1,176 @@
+---
+import "keen-slider/keen-slider.min.css";
+import Card from "./Card.astro";
+
+const PLACEHOLDER_VERSIONS = [
+  { version: "7.2_01", url: "#" },
+  { version: "7.1_02", url: "#" },
+  { version: "7.0_02", url: "#" },
+];
+---
+
+<div id="mod-slider" class="keen-slider">
+  <div class="keen-slider__slide">
+    <Card
+      title="Sort Chest"
+      icon="https://picsum.photos/id/111/360"
+      links={PLACEHOLDER_VERSIONS}
+      infoUrl="#"
+      style="--index:0"
+    />
+  </div>
+  <div class="keen-slider__slide">
+    <Card
+      title="Leaves Always Falling"
+      icon="https://picsum.photos/id/111/360"
+      links={PLACEHOLDER_VERSIONS}
+      infoUrl="#"
+      style="--index:1"
+    />
+  </div>
+  <div class="keen-slider__slide">
+    <Card
+      title="Craftable Chainmail Armor"
+      icon="https://picsum.photos/id/111/360"
+      links={PLACEHOLDER_VERSIONS}
+      infoUrl="#"
+      style="--index:2"
+    />
+  </div>
+  <div class="keen-slider__slide">
+    <Card
+      title="Proximity Chat"
+      icon="https://picsum.photos/id/111/360"
+      links={PLACEHOLDER_VERSIONS}
+      infoUrl="#"
+      style="--index:3"
+    />
+  </div>
+  <div class="keen-slider__slide">
+    <Card
+      title="Bit by Bit"
+      icon="https://picsum.photos/id/111/360"
+      links={PLACEHOLDER_VERSIONS}
+      infoUrl="#"
+      style="--index:4"
+    />
+  </div>
+</div>
+
+<script>
+  import KeenSlider, {
+    type KeenSliderPlugin,
+    type TrackSlidesConfigOption,
+  } from "keen-slider";
+
+  const ResizePlugin: KeenSliderPlugin = (slider) => {
+    const observer = new ResizeObserver(function () {
+      slider.update();
+    });
+
+    slider.on("created", () => {
+      observer.observe(slider.container);
+    });
+    slider.on("destroyed", () => {
+      observer.unobserve(slider.container);
+    });
+  };
+
+  const WheelControls: KeenSliderPlugin = (slider) => {
+    let touchTimeout: number | undefined;
+    let position: { x: number; y: number } | undefined;
+    let wheelActive = false;
+
+    function dispatch(e: WheelEvent, name: string) {
+      position = position || { x: e.pageX, y: e.pageY };
+      position.x -= e.deltaX + e.deltaY;
+      position.y -= e.deltaY + e.deltaX;
+      slider.container.dispatchEvent(
+        new CustomEvent(name, {
+          detail: { x: position.x, y: position.y },
+        })
+      );
+    }
+
+    function wheelStart(e: WheelEvent) {
+      position = { x: e.pageX, y: e.pageY };
+      dispatch(e, "ksDragStart");
+    }
+
+    function wheel(e: WheelEvent) {
+      dispatch(e, "ksDrag");
+    }
+
+    function wheelEnd(e: WheelEvent) {
+      dispatch(e, "ksDragEnd");
+    }
+
+    function eventWheel(e: WheelEvent) {
+      e.preventDefault();
+      if (!wheelActive) {
+        wheelStart(e);
+        wheelActive = true;
+      }
+      wheel(e);
+      clearTimeout(touchTimeout);
+      touchTimeout = window.setTimeout(() => {
+        wheelActive = false;
+        wheelEnd(e);
+      }, 50);
+    }
+
+    slider.on("created", () => {
+      slider.container.addEventListener("wheel", eventWheel, {
+        passive: false,
+      });
+    });
+  };
+
+  const createSlideConfigWithOffset =
+    ({ spacing = 30 } = {}) =>
+    (sliderSize: number, slides: HTMLElement[]): TrackSlidesConfigOption => {
+      const padding = 30;
+      const slideLength = slides.length;
+      const slideSize = 180;
+      const isSliderBiggerThanContent =
+        sliderSize >= slideLength * (slideSize + spacing) - spacing + padding * 2;
+      return slides.map((_, slideIndex) => {
+        let origin = isSliderBiggerThanContent
+          ? padding + slideIndex * (slideSize + spacing)
+          : Math.max(
+              padding,
+              sliderSize -
+                padding -
+                slideSize -
+                (slideLength - 1 - slideIndex) * (slideSize + spacing)
+            );
+        return {
+          size: slideSize / sliderSize,
+          spacing: spacing / sliderSize,
+          origin: origin / sliderSize,
+        };
+      });
+    };
+
+  new KeenSlider(
+    "#mod-slider",
+    {
+      mode: "free-snap",
+      defaultAnimation: {
+        duration: 0.83,
+        easing: (x) => 1 - Math.pow(1 - x, 3),
+      },
+      slides: createSlideConfigWithOffset({ spacing: 30 }),
+      breakpoints: {
+        "(min-width: 768px)": {
+          slides: createSlideConfigWithOffset({ spacing: 45 }),
+        },
+        "(min-width: 1024px)": {
+          slides: createSlideConfigWithOffset({ spacing: 60 }),
+        },
+      },
+      renderMode: "performance",
+    },
+    [ResizePlugin, WheelControls]
+  );
+</script>

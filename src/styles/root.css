@@ -21,16 +21,156 @@
 
   body {
     @apply min-h-svh;
+    --spring-easing: linear(
+      0,
+      0.0039 0.87%,
+      0.0194,
+      0.0442 3.18%,
+      0.085 4.63%,
+      0.1641 6.94%,
+      0.4648 15.04%,
+      0.5663 18.22%,
+      0.6458 21.11%,
+      0.7195,
+      0.7798 27.47%,
+      0.8323 30.94%,
+      0.8762 34.7%,
+      0.8952 36.72%,
+      0.9135,
+      0.9288,
+      0.9415 43.66%,
+      0.9533,
+      0.9627 48.87%,
+      0.9718,
+      0.9787 55.23%,
+      0.9886 62.17%,
+      0.9948 70.84%,
+      0.9982 82.41%,
+      0.9997 99.76%
+    );
+    --spring-duration: 0.8317s;
   }
 }
 
 @layer components {
   html {
-    @apply font-medium;
+    @apply font-medium bg-black text-white;
   }
 
   body {
-    @apply p-30 bg-black text-white flex flex-col gap-60 justify-between;
+    @apply p-30 flex flex-col justify-between gap-30;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url(/background.png);
+    opacity: 0.1;
+  }
+
+  .animate-link {
+    @apply transition-[background-size];
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    padding: 1px 0;
+    margin: -1px 0;
+  }
+
+  .animate-link:is(:hover, :focus) {
+    background-size: 100% 2px;
+  }
+
+  .animate-link-download > span {
+    @apply transition-[background-size];
+    background-image: linear-gradient(#da1e28, #da1e28);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    padding: 4px 0;
+    margin: -4px 0;
+  }
+
+  .animate-link-download:is(:hover, :focus) > span {
+    background-size: 100% 2px;
+  }
+
+  .card-figure {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 20px) 0,
+      100% 20px,
+      100% 100%,
+      20px 100%,
+      0 calc(100% - 20px)
+    );
+    @apply bg-black/50;
+  }
+
+  .card-body::before {
+    content: "";
+    background: repeating-linear-gradient(
+      180deg,
+      #750e13 0%,
+      #750e13 2px,
+      transparent 2px,
+      transparent 4px
+    );
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 9px;
+  }
+
+  @keyframes reveal {
+    0% {
+      transform: translateY(100%);
+      clip-path: xywh(0 0 100% 0);
+    }
+    /* to {
+      transform: translateY(0);
+      clip-path: xywh(0 0 100% 100%);
+    } */
+  }
+
+  .subtitle {
+    will-change: clip-path;
+    animation: var(--spring-duration) var(--spring-easing) both reveal;
+  }
+
+  .title {
+    will-change: clip-path;
+    animation: var(--spring-duration) var(--spring-easing)
+      calc(var(--spring-duration) * 0.1) both reveal;
+  }
+
+  @keyframes cardReveal {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+      filter: blur(2px);
+    }
+  }
+
+  .card {
+    will-change: filter;
+    animation: var(--spring-duration) var(--spring-easing)
+      calc(var(--spring-duration) * 0.5 + var(--index) * var(--spring-duration) * 0.1)
+      both cardReveal;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+  }
+
+  .footer {
+    animation: var(--spring-duration) var(--spring-easing)
+      calc(var(--spring-duration) * 0.75) both fade;
   }
 }
 
@@ -54,4 +194,10 @@
   summary.no-arrow::-webkit-details-marker {
     display: none;
   }
+}
+
+.keen-slider__slide {
+  min-width: calc(100% + 0px);
+  max-width: calc(100% + 0px);
+  transform: translate3d(0, 0, 0);
 }

@@ -47,6 +47,7 @@ export default {
       ],
     },
     fontSize: {
+      15: ["15px", 1],
       20: ["20px", 1],
       25: ["25px", 1],
       30: ["30px", 1.1],
@@ -60,11 +61,19 @@ export default {
     spacing: {
       0: "0",
       10: "10px",
+      15: "15px",
       20: "20px",
       25: "25px",
       30: "30px",
       45: "45px",
       60: "60px",
+      180: "180px",
+    },
+    transitionDuration: {
+      DEFAULT: ".2s",
+    },
+    transitionTimingFunction: {
+      DEFAULT: "cubic-bezier(0.22, 1, 0.36, 1)",
     },
   },
   plugins: [],
