@@ -130,10 +130,9 @@
       transform: translateY(100%);
       clip-path: xywh(0 0 100% 0);
     }
-    /* to {
-      transform: translateY(0);
+    to {
       clip-path: xywh(0 0 100% 100%);
-    } */
+    }
   }
 
   .subtitle {
