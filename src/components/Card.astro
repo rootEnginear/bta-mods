@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   icon: string;
-  links: { version: string; url: string }[];
+  links: { version: string; url: string; isDatapack?: boolean }[];
   infoUrl: string;
   style?: string;
 }
@@ -21,7 +21,7 @@ const { title, icon, links, infoUrl, style } = Astro.props;
       aria-label="download mod by bta versions"
     >
       {
-        links.map(({ version, url }) => (
+        links.map(({ version, url, isDatapack }) => (
           <li>
             <a
               class="flex gap-10 items-center animate-link-download outline-none"
@@ -43,7 +43,15 @@ const { title, icon, links, infoUrl, style } = Astro.props;
                   d="M17.5 12.5v3.333a1.666 1.666 0 01-1.667 1.667H4.167A1.667 1.667 0 012.5 15.833V12.5m3.333-4.167L10 12.5m0 0l4.167-4.167M10 12.5v-10"
                 />
               </svg>
-              <span>{version}</span>
+              <span>
+                {version}
+                {isDatapack && (
+                  <>
+                    {" "}
+                    <span class="text-15 opacity-50">(Datapack)</span>
+                  </>
+                )}
+              </span>
             </a>
           </li>
         ))

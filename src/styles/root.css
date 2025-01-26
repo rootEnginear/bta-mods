@@ -157,7 +157,7 @@
   .card {
     will-change: filter;
     animation: var(--spring-duration) var(--spring-easing)
-      calc(var(--spring-duration) * 0.5 + var(--index) * var(--spring-duration) * 0.1)
+      calc(var(--spring-duration) * 0.375 + var(--index) * var(--spring-duration) * 0.1)
       both cardReveal;
   }
 

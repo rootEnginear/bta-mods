@@ -38,6 +38,16 @@
     "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/craftable-chainmail-armor/src/main/resources/icon.png",
     "links": [
       {
+        "version": "7.3",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/cca%2Fv2.0.0/craftablechainmailarmor.zip",
+        "isDatapack": true
+      },
+      {
+        "version": "7.2",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/cca%2Fv2.0.0/craftablechainmailarmor.zip",
+        "isDatapack": true
+      },
+      {
         "version": "7.1",
         "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/cca%2Fv1.1.0/craftablechainmailarmor-1.1.0.jar"
       },
