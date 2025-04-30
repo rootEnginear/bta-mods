@@ -1,5 +1,16 @@
 [
   {
+    "title": "Carry Cake and Pie",
+    "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/carry-cake-and-pie/src/main/resources/icon.png",
+    "links": [
+      {
+        "version": "7.3",
+        "url": "https://github.com/rootEnginear/bta-rootenginear-mods/releases/download/ccp%2Fv1.0.0/carrycakeandpie-1.0.0.jar"
+      }
+    ],
+    "infoUrl": "https://github.com/rootEnginear/bta-rootenginear-mods/tree/carry-cake-and-pie"
+  },
+  {
     "title": "Sort Chest",
     "icon": "https://raw.githubusercontent.com/rootEnginear/bta-rootenginear-mods/refs/heads/sort-chest/src/main/resources/icon.png",
     "links": [
